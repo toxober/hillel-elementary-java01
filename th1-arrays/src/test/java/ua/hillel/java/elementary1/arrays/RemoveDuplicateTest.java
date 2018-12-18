@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import ua.hillel.java.elementary1.arrays.tasks.RemoveDuplicates;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
@@ -31,6 +33,11 @@ public class RemoveDuplicateTest {
 
     @Test
     public void removeDuplicates() {
-       // Assert.assertArrayEquals(expected, RemoveDuplicate.removeDuplicates(array));
+        Collection<RemoveDuplicates> duplicates = Utils.implementations(RemoveDuplicates.class);
+        for (RemoveDuplicates duplicate : duplicates) {
+            Assert.assertArrayEquals(String.format("Failed %s [%s]", duplicate.getClass(), Arrays.toString(array)),
+                                     expected,
+                                     duplicate.removeDuplicates(array));
+        }
     }
 }

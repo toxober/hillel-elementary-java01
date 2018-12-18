@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import ua.hillel.java.elementary1.arrays.tasks.RemoveFirstElement;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class)
@@ -34,6 +36,12 @@ public class RemoveElementTest {
 
     @Test
     public void removeFirstElement() {
-        //Assert.assertArrayEquals(expected, RemoveElement.removeFirstElement(array, target));
+        Collection<RemoveFirstElement> removeFirstElements = Utils.implementations(RemoveFirstElement.class);
+        for (RemoveFirstElement remover : removeFirstElements) {
+            Assert.assertArrayEquals(
+                    String.format("Failed %s [%s] %d", remover.getClass(), Arrays.toString(array), target),
+                    expected,
+                    remover.removeFirstElement(array, target));
+        }
     }
 }
