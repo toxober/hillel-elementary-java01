@@ -6,9 +6,9 @@ import org.openjdk.jol.vm.VM;
 
 public class ArrayMemoryExample {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 2, 3};
+        int[] array = new int[]{1, 2, 3, 4};
         //
-        System.out.println(VM.current().details());
+        //System.out.println(VM.current().details());
         System.out.println("======================\n");
         System.out.println(ClassLayout.parseInstance(array).toPrintable());
         System.out.println(GraphLayout.parseInstance((Object) array).toFootprint());
